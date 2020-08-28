@@ -15,7 +15,7 @@
   "devDependencies": {
     "@babel/core": "7.11.4",
     "@babel/runtime": "7.11.2",
-    "@types/react-native": "0.63.10",
+    "@types/react-native": "0.63.11",
     "@youjinbu/eslint-config": "0.2.0",
     "@youjinbu/prettier-config": "0.0.1",
     "eslint": "7.7.0",
