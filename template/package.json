@@ -20,7 +20,7 @@
     "@youjinbu/prettier-config": "0.0.1",
     "eslint": "7.9.0",
     "metro-react-native-babel-preset": "0.63.0",
-    "prettier": "2.1.1",
+    "prettier": "2.1.2",
     "typescript": "3.9.7"
   },
   "eslintConfig": {
