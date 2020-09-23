@@ -1,8 +1,10 @@
 A react native template with these changes:
 
-- use typescript
-- use prettier with @youjinbu/prettier
-- use eslint with @youjinbu/eslint-config
+- typescript
+- prettier (with @youjinbu/prettier)
+- eslint (with @youjinbu/eslint-config)
+- babel-plugin-module-resolver (baseUrl in ts)
+- react-navigation
 - rm useless ios targets and tests
 - rm BUCK files
 
