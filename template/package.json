@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
-    "@react-navigation/bottom-tabs": "5.9.1",
-    "@react-navigation/native": "5.7.5",
-    "@react-navigation/stack": "5.9.2",
+    "@react-navigation/bottom-tabs": "5.9.2",
+    "@react-navigation/native": "5.7.6",
+    "@react-navigation/stack": "5.9.3",
     "react": "16.13.1",
     "react-native": "0.63.3",
     "react-native-gesture-handler": "1.8.0",
@@ -23,7 +23,7 @@
   "devDependencies": {
     "@babel/core": "7.11.6",
     "@babel/runtime": "7.11.2",
-    "@types/react-native": "0.63.23",
+    "@types/react-native": "0.63.25",
     "@youjinbu/eslint-config": "0.3.0",
     "@youjinbu/prettier-config": "0.0.1",
     "babel-plugin-module-resolver": "4.0.0",
