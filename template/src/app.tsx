@@ -6,7 +6,7 @@ import {
   View,
   Text,
   StatusBar,
-  TouchableOpacity,
+  Pressable,
 } from 'react-native'
 
 import {
@@ -36,9 +36,9 @@ const App = () => {
           contentInsetAdjustmentBehavior='automatic'
           style={styles.scrollView}
         >
-          <TouchableOpacity onPress={() => navigation.navigate('main')}>
+          <Pressable onPress={() => navigation.navigate('main')}>
             <Header />
-          </TouchableOpacity>
+          </Pressable>
           {global.HermesInternal === null ? null : (
             <View style={styles.engine}>
               <Text style={styles.footer}>Engine: Hermes</Text>

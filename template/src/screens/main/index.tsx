@@ -1,15 +1,16 @@
 import React from 'react'
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
+import {View, StyleSheet, Pressable} from 'react-native'
 import {useNavigation} from 'navigation'
+import {Text} from 'components'
 
-export default function ProfileScreen() {
+export default function MainScreen() {
   const navigation = useNavigation()
 
   return (
     <View style={styles.wrap}>
-      <TouchableOpacity onPress={() => navigation.navigate('profile')}>
-        <Text style={styles.text}>main</Text>
-      </TouchableOpacity>
+      <Pressable onPress={() => navigation.navigate('profile')}>
+        <Text fontSize={28}>main</Text>
+      </Pressable>
     </View>
   )
 }
@@ -19,9 +20,5 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-
-  text: {
-    fontSize: 28,
   },
 })

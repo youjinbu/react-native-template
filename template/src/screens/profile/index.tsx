@@ -1,10 +1,11 @@
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, StyleSheet} from 'react-native'
+import {Text} from 'components'
 
 export default function ProfileScreen() {
   return (
     <View style={styles.wrap}>
-      <Text style={styles.text}>profile</Text>
+      <Text fontSize={38}>profile</Text>
     </View>
   )
 }
@@ -14,9 +15,5 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-
-  text: {
-    fontSize: 28,
   },
 })
