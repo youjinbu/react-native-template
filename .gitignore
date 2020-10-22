@@ -57,6 +57,5 @@ buck-out/
 
 # CocoaPods
 Pods
-Podfile.lock
 *.xcodeproj
 *.xcworkspace
