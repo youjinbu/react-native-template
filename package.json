@@ -1,6 +1,16 @@
 {
   "name": "@youjinbu/react-native",
   "version": "0.0.2",
+  "files": [
+    "template.config.js",
+    "template/",
+    "!template/node_modules",
+    "!template/ios/Pods/",
+    "!template/ios/HelloWorld.xc*",
+    "!template/android/app/build/",
+    "!template/android/build/",
+    "!template/android/.gradle/"
+  ],
   "repository": "https://github.com/youjinbu/react-native-template",
   "keywords": ["react-native", "react-native-template"],
   "license": "MIT"
