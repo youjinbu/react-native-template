@@ -27,7 +27,7 @@
     "@babel/core": "7.12.0",
     "@babel/runtime": "7.12.0",
     "@types/react-native": "0.63.25",
-    "@youjinbu/eslint-config": "0.3.0",
+    "@youjinbu/eslint-config": "0.3.1",
     "@youjinbu/prettier-config": "0.0.1",
     "babel-plugin-module-resolver": "4.0.0",
     "eslint": "7.11.0",
