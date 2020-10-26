@@ -14,7 +14,9 @@
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
     "esModuleInterop": true
   },
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "babel.config.js", "metro.config.js"]
 }
