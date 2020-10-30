@@ -9,6 +9,7 @@ A react native template with these changes:
 - [react-native-unimodules](https://github.com/expo/expo/tree/master/packages/react-native-unimodules)
 - rm xcodeproj ([thanks](https://github.com/pvinis/react-native-xcodegen) to [xcodegen](https://github.com/yonaskolb/XcodeGen))
 - rm useless ios targets and tests
+- rm flipper in iOS
 - rm BUCK files
 
 ## Usage
