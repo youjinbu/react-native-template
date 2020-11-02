@@ -7,6 +7,7 @@ A react native template with these changes:
 - [babel-plugin-module-resolver](https://github.com/tleunen/babel-plugin-module-resolver) (baseUrl in ts)
 - [react-navigation](https://reactnavigation.org/)
 - [react-native-unimodules](https://github.com/expo/expo/tree/master/packages/react-native-unimodules)
+- [expo-splash-screen](https://github.com/expo/expo/tree/master/packages/expo-splash-screen)
 - rm xcodeproj ([thanks](https://github.com/pvinis/react-native-xcodegen) to [xcodegen](https://github.com/yonaskolb/XcodeGen))
 - rm useless ios targets and tests
 - rm flipper in iOS
