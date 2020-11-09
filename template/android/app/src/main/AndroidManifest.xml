@@ -7,7 +7,11 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:allowBackup="false"
     android:theme="@style/AppTheme"
+    android:usesCleartextTraffic="true"
   >
+    <meta-data android:name="expo.modules.updates.EXPO_UPDATE_URL" android:value="@string/EXPO_UPDATE_URL" />
+    <meta-data android:name="expo.modules.updates.EXPO_RUNTIME_VERSION" android:value="@string/EXPO_RUNTIME_VERSION" />
+
     <activity
       android:name=".MainActivity"
       android:label="@string/app_name"

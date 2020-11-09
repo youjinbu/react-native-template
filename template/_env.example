@@ -1,0 +1,4 @@
+API_URL=https://reactnative.dev
+
+EXPO_UPDATE_URL=http://localhost:8080
+EXPO_RUNTIME_VERSION=1

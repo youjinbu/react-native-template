@@ -15,4 +15,3 @@
 
 # react-native-config
 -keep class com.helloworld.BuildConfig { *; }
--keepresources string/build_config_package
