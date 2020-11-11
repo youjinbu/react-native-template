@@ -1,4 +1,4 @@
-const alias = ['theme', 'screens', 'navigation', 'components']
+const alias = ['shared', 'screens', 'components', 'assets']
 
 module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
