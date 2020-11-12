@@ -3,6 +3,7 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <React/RCTConvert.h>
 
 #import <UMCore/UMModuleRegistry.h>
 #import <UMReactNativeAdapter/UMNativeModulesProxy.h>
@@ -29,17 +30,10 @@
   #ifdef DEBUG
     [self initializeReactNativeApp];
   #else
-    EXUpdatesAppController *controller = [EXUpdatesAppController sharedInstance];
-    [controller setConfiguration: @{
-      @"EXUpdatesURL": [ReactNativeConfig envFor: @"EXPO_UPDATE_URL"],
-      @"EXUpdatesRuntimeVersion": [ReactNativeConfig envFor: @"EXPO_RUNTIME_VERSION"]
-    }];
-    controller.delegate = self;
-    [controller startAndShowLaunchScreen:self.window];
+    [self initializeReactNativeAppWithExpoUpdates];
   #endif
 
   [super application:application didFinishLaunchingWithOptions:launchOptions];
-
   return YES;
 }
 
@@ -56,6 +50,21 @@
   [self.window makeKeyAndVisible];
 
   return bridge;
+}
+
+- (void)initializeReactNativeAppWithExpoUpdates
+{
+  EXUpdatesAppController *controller = [EXUpdatesAppController sharedInstance];
+
+  [controller setConfiguration: @{
+    @"EXUpdatesURL": [ReactNativeConfig envFor:@"EXPO_UPDATES_URL"],
+    @"EXUpdatesEnabled": [self envBool:@"EXPO_UPDATES_ENABLED"],
+    @"EXUpdatesCheckOnLaunch": [ReactNativeConfig envFor:@"EXPO_UPDATES_CHECK_ON_LAUNCH"] ?: @"WIFI_ONLY",
+    @"EXUpdatesReleaseChannel": [ReactNativeConfig envFor:@"EXPO_UPDATES_RELEASE_CHANNEL"] ?: @"default",
+    @"EXUpdatesRuntimeVersion": [ReactNativeConfig envFor:@"EXPO_UPDATES_RUNTIME_VERSION"]
+  }];
+  controller.delegate = self;
+  [controller startAndShowLaunchScreen:self.window];
 }
 
 - (NSArray<id<RCTBridgeModule>> *)extraModulesForBridge:(RCTBridge *)bridge
@@ -79,6 +88,17 @@
   appController.bridge = [self initializeReactNativeApp];
   EXSplashScreenService *splashScreenService = (EXSplashScreenService *)[UMModuleRegistryProvider getSingletonModuleForClass:[EXSplashScreenService class]];
   [splashScreenService showSplashScreenFor:self.window.rootViewController];
+}
+
+- (NSNumber *)envBool:(NSString *)name
+{
+  NSString *v = [ReactNativeConfig envFor:name] ?: @"";
+
+  if ([v isEqual:@"true"] || [v isEqual:@"1"] || [v isEqual:@"y"]) {
+    return @YES;
+  }
+
+  return @NO;
 }
 
 @end

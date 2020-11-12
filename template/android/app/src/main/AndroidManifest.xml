@@ -9,8 +9,11 @@
     android:theme="@style/AppTheme"
     android:usesCleartextTraffic="true"
   >
-    <meta-data android:name="expo.modules.updates.EXPO_UPDATE_URL" android:value="@string/EXPO_UPDATE_URL" />
-    <meta-data android:name="expo.modules.updates.EXPO_RUNTIME_VERSION" android:value="@string/EXPO_RUNTIME_VERSION" />
+    <meta-data android:name="expo.modules.updates.ENABLED" android:value="${expoUpdatesEnabled}" />
+    <meta-data android:name="expo.modules.updates.EXPO_UPDATE_URL" android:value="@string/EXPO_UPDATES_URL" />
+    <meta-data android:name="expo.modules.updates.EXPO_RUNTIME_VERSION" android:value="@string/EXPO_UPDATES_RUNTIME_VERSION" />
+    <meta-data android:name="expo.modules.updates.EXPO_RELEASE_CHANNEL" android:value="@string/EXPO_UPDATES_RELEASE_CHANNEL" />
+    <meta-data android:name="expo.modules.updates.EXPO_UPDATES_CHECK_ON_LAUNCH" android:value="@string/EXPO_UPDATES_CHECK_ON_LAUNCH" />
 
     <activity
       android:name=".MainActivity"
