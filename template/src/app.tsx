@@ -55,7 +55,11 @@ function LoginScreens() {
 export default function Index() {
   return (
     <>
-      <StatusBar translucent={true} />
+      <StatusBar
+        translucent={true}
+        barStyle='dark-content'
+        backgroundColor='transparent'
+      />
       <ThemeProvider theme={theme}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName='main'>

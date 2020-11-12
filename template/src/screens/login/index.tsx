@@ -1,13 +1,14 @@
 import React from 'react'
-import {Input, Button, Box, Text} from 'components'
+import {Input, Button, Text} from 'components'
 import {useNavigation} from 'shared/navigation'
+import {Container} from './components/container'
 import {Card} from './components/card'
 
 export default function LoginScreen() {
   const navigation = useNavigation()
 
   return (
-    <Box flex={1}>
+    <Container>
       <Card
         title='手机号登录注册'
         source={{
@@ -29,6 +30,6 @@ export default function LoginScreen() {
       <Text variant='tiny' mt='s' textAlign='center'>
         登录注册即代表同意 HelloWorld 用户协议 隐私政策
       </Text>
-    </Box>
+    </Container>
   )
 }
