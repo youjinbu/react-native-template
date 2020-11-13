@@ -1,20 +1,66 @@
 import React from 'react'
-import {Text, TouchableBox} from './restyle-components'
+import {
+  Platform,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+  TouchableWithoutFeedbackProps,
+} from 'react-native'
+import {BoxProps} from '@shopify/restyle'
+import {Theme} from 'shared/theme'
+import {Text, Box} from './restyle-components'
 
-type ButtonProps = React.ComponentProps<typeof TouchableBox> & {label: string}
+type ButtonProps = BoxProps<Theme> & {
+  label: string
+  disabled?: boolean
+  accessibilityLabel?: string
+  touchSoundDisabled?: boolean
+  onPress?: () => void
+  testID?: string
+}
 
-export const Button: React.FC<ButtonProps> = ({onPress, label, ...rest}) => {
+const Touchable = ((Platform.OS === 'android'
+  ? TouchableNativeFeedback
+  : TouchableOpacity) as unknown) as React.FC<TouchableWithoutFeedbackProps>
+
+export const Button: React.FC<ButtonProps> = ({
+  label,
+  onPress,
+  accessibilityLabel,
+  disabled = false,
+  touchSoundDisabled = true,
+  testID,
+  bg = 'primary',
+  height = 50,
+  borderRadius = 10,
+  ...rest
+}) => {
   return (
-    <TouchableBox
-      height={50}
-      bg='primary'
-      borderRadius={10}
-      alignItems='center'
-      justifyContent='center'
-      onPress={onPress}
+    <Box
+      overflow='hidden'
+      borderRadius={borderRadius}
+      height={height}
       {...rest}
     >
-      <Text color='white'>{label}</Text>
-    </TouchableBox>
+      <Touchable
+        testID={testID}
+        onPress={onPress}
+        disabled={disabled}
+        touchSoundDisabled={touchSoundDisabled}
+        accessibilityRole='button'
+        accessibilityLabel={accessibilityLabel}
+        accessibilityState={{disabled}}
+      >
+        <Box
+          flex={1}
+          bg={bg}
+          alignItems='center'
+          justifyContent='center'
+          borderRadius={borderRadius}
+          elevation={disabled ? 0 : 2}
+        >
+          <Text color='white'>{label}</Text>
+        </Box>
+      </Touchable>
+    </Box>
   )
 }

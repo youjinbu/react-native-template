@@ -8,7 +8,7 @@ export const Container: React.FC = ({children}) => (
     keyboardVerticalOffset={100}
     behavior={Platform.OS === 'ios' ? 'padding' : undefined}
   >
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView>
       <ScrollView>{children}</ScrollView>
     </SafeAreaView>
   </KeyboardAvoidingView>
