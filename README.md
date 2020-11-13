@@ -20,7 +20,7 @@ A react native template with these changes:
 - rm [flipper](https://fbflipper.com/) in iOS
 - rm [BUCK](https://github.com/facebook/buck) files
 
-### usage
+## Usage
 
 ```
 npx react-native init projectName --template @youjinbu/react-native
