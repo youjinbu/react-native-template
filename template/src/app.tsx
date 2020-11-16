@@ -25,7 +25,7 @@ function LoginScreens() {
   return (
     <LoginStack.Navigator
       screenOptions={{
-        headerStyle: {backgroundColor: 'transparent'},
+        headerStyle: {backgroundColor: '#f2f2f2'},
         headerTitle: '登录注册',
         headerBackTitle: '',
         headerHideShadow: true,

@@ -45,6 +45,7 @@ export const Button: React.FC<ButtonProps> = ({
         testID={testID}
         onPress={onPress}
         disabled={disabled}
+        style={Platform.select({ios: {flex: 1}})}
         touchSoundDisabled={touchSoundDisabled}
         accessibilityRole='button'
         accessibilityLabel={accessibilityLabel}
