@@ -1,13 +1,8 @@
 import React from 'react'
-import {
-  Platform,
-  TouchableOpacity,
-  TouchableNativeFeedback,
-  TouchableWithoutFeedbackProps,
-} from 'react-native'
+import {Platform, TouchableNativeFeedback} from 'react-native'
 import {BoxProps} from '@shopify/restyle'
 import {Theme} from 'shared/theme'
-import {Text, Box} from './restyle-components'
+import {Text, Box, TouchableBox} from './restyle-components'
 
 type ButtonProps = BoxProps<Theme> & {
   label: string
@@ -18,50 +13,79 @@ type ButtonProps = BoxProps<Theme> & {
   testID?: string
 }
 
-const Touchable = ((Platform.OS === 'android'
-  ? TouchableNativeFeedback
-  : TouchableOpacity) as unknown) as React.FC<TouchableWithoutFeedbackProps>
-
-export const Button: React.FC<ButtonProps> = ({
-  label,
-  onPress,
-  accessibilityLabel,
-  disabled = false,
-  touchSoundDisabled = true,
-  testID,
-  bg = 'primary',
-  height = 50,
-  borderRadius = 10,
-  ...rest
-}) => {
-  return (
-    <Box
-      overflow='hidden'
-      borderRadius={borderRadius}
-      height={height}
-      {...rest}
-    >
-      <Touchable
+const ButtonIOS: React.FC<ButtonProps> = React.memo(
+  ({
+    label,
+    onPress,
+    testID,
+    accessibilityLabel,
+    disabled = false,
+    touchSoundDisabled = true,
+    ...rest
+  }) => {
+    return (
+      <TouchableBox
         testID={testID}
         onPress={onPress}
         disabled={disabled}
-        style={Platform.select({ios: {flex: 1}})}
         touchSoundDisabled={touchSoundDisabled}
         accessibilityRole='button'
         accessibilityLabel={accessibilityLabel}
         accessibilityState={{disabled}}
+        alignItems='center'
+        justifyContent='center'
+        activeOpacity={0.75}
+        {...rest}
       >
-        <Box
-          flex={1}
-          bg={bg}
-          alignItems='center'
-          justifyContent='center'
-          borderRadius={borderRadius}
-          elevation={disabled ? 0 : 2}
+        <Text color='white'>{label}</Text>
+      </TouchableBox>
+    )
+  }
+)
+
+const ButtonAndroid: React.FC<ButtonProps> = React.memo(
+  ({
+    label,
+    onPress,
+    testID,
+    bg,
+    accessibilityLabel,
+    disabled = false,
+    touchSoundDisabled = true,
+    ...rest
+  }) => {
+    return (
+      <Box overflow='hidden' {...rest}>
+        <TouchableNativeFeedback
+          testID={testID}
+          onPress={onPress}
+          disabled={disabled}
+          touchSoundDisabled={touchSoundDisabled}
+          accessibilityRole='button'
+          accessibilityLabel={accessibilityLabel}
+          accessibilityState={{disabled}}
         >
-          <Text color='white'>{label}</Text>
-        </Box>
-      </Touchable>
-    </Box>
-  )
+          <Box
+            flex={1}
+            bg={bg}
+            alignItems='center'
+            justifyContent='center'
+            borderRadius={rest.borderRadius}
+            elevation={disabled ? 0 : 2}
+          >
+            <Text color='white'>{label}</Text>
+          </Box>
+        </TouchableNativeFeedback>
+      </Box>
+    )
+  }
+)
+
+export const Button: React.FC<ButtonProps> =
+  Platform.OS === 'android' ? ButtonAndroid : ButtonIOS
+
+Button.defaultProps = {
+  bg: 'primary',
+  height: 50,
+  borderRadius: 10,
 }

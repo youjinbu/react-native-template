@@ -5,10 +5,13 @@ import {StatusBar, Platform} from 'react-native'
 import {enableScreens} from 'react-native-screens'
 import {NavigationContainer} from '@react-navigation/native'
 import {createNativeStackNavigator} from 'react-native-screens/native-stack'
+import {SafeAreaProvider} from 'react-native-safe-area-context'
 import {ThemeProvider} from '@shopify/restyle'
 import {useNavigation, Stack} from 'shared/navigation'
 import {theme, useTheme} from 'shared/theme'
+import {Prompt} from 'components/prompt'
 import {Text} from 'components'
+import {usePrompt} from 'shared/hooks'
 import SmsVerificationScreen from './screens/login/sms-verification'
 import RegisterScreen from './screens/login/register'
 import LoginScreen from './screens/login'
@@ -54,13 +57,13 @@ function LoginScreens() {
 
 export default function Index() {
   return (
-    <>
-      <StatusBar
-        translucent={true}
-        barStyle='dark-content'
-        backgroundColor='transparent'
-      />
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <SafeAreaProvider>
+        <StatusBar
+          translucent={true}
+          barStyle='dark-content'
+          backgroundColor='transparent'
+        />
         <NavigationContainer>
           <Stack.Navigator initialRouteName='main'>
             <Stack.Screen
@@ -78,7 +81,8 @@ export default function Index() {
             />
           </Stack.Navigator>
         </NavigationContainer>
-      </ThemeProvider>
-    </>
+        <Prompt ref={usePrompt().ref} />
+      </SafeAreaProvider>
+    </ThemeProvider>
   )
 }

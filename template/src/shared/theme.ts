@@ -6,6 +6,7 @@ const palette = {
   text: '#262626',
   greytext: '#8c8c8c',
   primary: '#da372a',
+  transparent: 'transparent',
 }
 
 const textVariants = {
@@ -48,6 +49,7 @@ const cardVariants = {
 export const theme = createTheme({
   colors: {
     ...palette,
+    greybg: palette.bg,
   },
 
   spacing: {

@@ -7,6 +7,7 @@ type TextInputPropsFlatten =
   | 'placeholderTextColor'
   | 'placeholder'
   | 'onChangeText'
+
 type InputProps = React.ComponentProps<typeof Card> &
   Pick<TextInputProps, TextInputPropsFlatten> & {
     options?: Omit<TextInputProps, TextInputPropsFlatten>
@@ -14,12 +15,20 @@ type InputProps = React.ComponentProps<typeof Card> &
   }
 
 export const Input: React.FC<InputProps> = React.memo(
-  ({options, placeholderTextColor, placeholder, icon, ...rest}) => {
+  ({
+    icon,
+    options,
+    onChangeText,
+    placeholder,
+    placeholderTextColor,
+    ...rest
+  }) => {
     return (
       <Card variant='textinput' {...rest}>
         {icon && <Image mx='m' width={20} height={20} source={icon} />}
         <TextInput
           style={{height: '100%', flexGrow: 1}}
+          onChangeText={onChangeText}
           placeholder={placeholder}
           placeholderTextColor={placeholderTextColor}
           underlineColorAndroid='transparent'
