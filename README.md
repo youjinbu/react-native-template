@@ -4,9 +4,10 @@ A react native template with these changes:
 - [@shopify/restyle](https://github.com/Shopify/restyle)
 - [react-navigation](https://reactnavigation.org/)
 - [react-native-unimodules](https://github.com/expo/expo/tree/master/packages/react-native-unimodules)
-- [expo-splash-screen](https://github.com/expo/expo/tree/master/packages/expo-splash-screen)
-- [expo-updates](https://github.com/expo/expo/tree/master/packages/expo-updates)
 - [react-native-config](https://github.com/luggit/react-native-config)
+- [expo-updates](https://github.com/expo/expo/tree/master/packages/expo-updates)
+- [expo-web-browser](https://github.com/expo/expo/tree/master/packages/expo-web-browser)
+- [expo-splash-screen](https://github.com/expo/expo/tree/master/packages/expo-splash-screen)
 
 ### devDependencies
 - [TypeScript](typescriptlang.org)

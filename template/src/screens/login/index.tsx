@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import * as WebBrowser from 'expo-web-browser'
 import {Input, Button, Text} from 'components'
 import {useNavigation} from 'shared/navigation'
 import {usePrompt} from 'shared/hooks'
@@ -16,6 +17,10 @@ export default function LoginScreen() {
     } else {
       prompt.show('Invalid Phone Number')
     }
+  }
+
+  function openUrl(url: string) {
+    WebBrowser.openBrowserAsync(url)
   }
 
   return (
@@ -43,7 +48,16 @@ export default function LoginScreen() {
       </Card>
 
       <Text variant='tiny' mt='s' textAlign='center'>
-        登录注册即代表同意 HelloWorld 用户协议 隐私政策
+        登录注册即代表同意 HelloWorld{' '}
+        <Text variant='tinyLink' onPress={() => openUrl('https://google.com')}>
+          用户协议
+        </Text>{' '}
+        <Text
+          variant='tinyLink'
+          onPress={() => openUrl('https://duckduckgo.com')}
+        >
+          隐私政策
+        </Text>
       </Text>
     </Container>
   )

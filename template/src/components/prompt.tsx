@@ -46,7 +46,7 @@ const PromptComponent: React.RefForwardingComponent<
   const {width} = useWindowDimensions()
   const [translateY] = useState(() => new Animated.Value(-250))
   const insets = useSafeAreaInsets()
-  const offset = insets.top + 44
+  const offset = insets.top + 0 // TODO
 
   const hide = useCallback(() => {
     Animated.timing(translateY, {

@@ -4,6 +4,7 @@ const palette = {
   bg: '#f8f8f8',
   white: '#ffffff',
   text: '#262626',
+  grey: '#565656',
   greytext: '#8c8c8c',
   primary: '#da372a',
   transparent: 'transparent',
@@ -28,6 +29,11 @@ const textVariants = {
     color: 'greytext',
     fontSize: 12,
   },
+
+  tinyLink: {
+    color: 'greylink',
+    fontSize: 12,
+  },
 }
 
 const cardVariants = {
@@ -50,6 +56,7 @@ export const theme = createTheme({
   colors: {
     ...palette,
     greybg: palette.bg,
+    greylink: palette.grey,
   },
 
   spacing: {
