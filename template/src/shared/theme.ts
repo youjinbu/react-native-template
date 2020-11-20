@@ -23,6 +23,7 @@ const textVariants = {
   title: {
     fontWeight: '500',
     fontSize: 20,
+    textAlign: 'center',
   },
 
   tiny: {
@@ -57,6 +58,7 @@ export const theme = createTheme({
     ...palette,
     greybg: palette.bg,
     greylink: palette.grey,
+    placeholder: '#8c8c8c',
   },
 
   spacing: {

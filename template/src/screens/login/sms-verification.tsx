@@ -22,7 +22,6 @@ export default function SmsVerificationScreen({
         <Button
           label='下一步'
           my='xl'
-          width='100%'
           onPress={() => navigation.navigate('register')}
         />
         <Text variant='tiny'>点此重新获取</Text>

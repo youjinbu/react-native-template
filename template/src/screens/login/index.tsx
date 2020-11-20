@@ -44,7 +44,7 @@ export default function LoginScreen() {
             dataDetectorTypes: 'phoneNumber',
           }}
         />
-        <Button mt='m' width='100%' label='下一步' onPress={onSubmit} />
+        <Button mt='m' label='下一步' onPress={onSubmit} />
       </Card>
 
       <Text variant='tiny' mt='s' textAlign='center'>

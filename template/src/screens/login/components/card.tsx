@@ -15,20 +15,21 @@ export const Card: React.FC<CardProps> = ({
   source,
 }) => {
   return (
-    <ReCard mx='s' mt='s' p='xxxl' alignItems='center' flexDirection='column'>
+    <ReCard mx='s' mt='s' p='xxxl' flexDirection='column'>
       {source && (
         <Image
           source={source}
           mb='m'
           width={180}
           height={180}
+          alignSelf='center'
           resizeMode='contain'
         />
       )}
 
       <Text variant='title'>{title}</Text>
       {subtitle && (
-        <Text variant='tiny' mt='s'>
+        <Text variant='tiny' mt='s' textAlign='center'>
           {subtitle}
         </Text>
       )}
