@@ -13,7 +13,11 @@ A react native template with these changes:
 - [TypeScript](typescriptlang.org)
 - [Prettier](https://prettier.io/) (with [@youjinbu/prettier](https://github.com/youjinbu/config/tree/master/packages/prettier))
 - [ESLint](https://eslint.org/) (with [@youjinbu/eslint-config](https://github.com/youjinbu/config/tree/master/packages/eslint))
-- [babel-plugin-module-resolver](https://github.com/tleunen/babel-plugin-module-resolver) (baseUrl in ts)
+- [babel-plugin-module-resolver](https://github.com/tleunen/babel-plugin-module-resolver)
+
+### feature flags
+- enable [hermes](https://hermesengine.dev/) (Android only)
+- enable proguard
 
 ### others
 - rm xcodeproj ([thanks](https://github.com/pvinis/react-native-xcodegen) to [xcodegen](https://github.com/yonaskolb/XcodeGen))
@@ -23,10 +27,24 @@ A react native template with these changes:
 
 ## Usage
 
+### Install
 ```
 npx react-native init projectName --template @youjinbu/react-native
+mv .env.example .env
+```
+
+### iOS
+```
+DEVELOPMENT_TEAM=your_apple_team_id yarn xcodegen
+npx pod-install
+yarn ios --simulator "iPhone 12"
+```
+
+### Android
+```
+yarn android
 ```
 
 ## License
 
-MIT
+[MIT](/LICENSE)

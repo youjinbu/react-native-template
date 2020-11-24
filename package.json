@@ -4,6 +4,9 @@
   "files": [
     "template.config.js",
     "template/",
+    "!template/**/*.DS_Store",
+    "!template/.env",
+    "!template/.expo",
     "!template/node_modules",
     "!template/ios/Pods/",
     "!template/ios/HelloWorld.xc*",
