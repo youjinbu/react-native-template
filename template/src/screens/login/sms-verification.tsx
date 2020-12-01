@@ -24,7 +24,9 @@ export default function SmsVerificationScreen({
           my='xl'
           onPress={() => navigation.navigate('register')}
         />
-        <Text variant='tiny'>点此重新获取</Text>
+        <Text variant='tiny' textAlign='center'>
+          点此重新获取
+        </Text>
       </Card>
     </Container>
   )
