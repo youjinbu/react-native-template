@@ -10,5 +10,6 @@ module.exports = {
         alias: alias.reduce((r, i) => ({...r, [i]: `./src/${i}`}), {}),
       },
     ],
+    'react-native-reanimated/plugin',
   ],
 }

@@ -15,3 +15,6 @@
 
 # react-native-config
 -keep class com.helloworld.BuildConfig { *; }
+
+# turbomodule
+-keep class com.facebok.react.turbomodule.** { *; }

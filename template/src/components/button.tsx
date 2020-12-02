@@ -13,18 +13,22 @@ type ButtonProps = BoxProps<Theme> & {
   testID?: string
 }
 
-const ButtonIOS: React.FC<ButtonProps> = React.memo(
-  ({
-    label,
-    onPress,
-    testID,
-    accessibilityLabel,
-    disabled = false,
-    touchSoundDisabled = true,
-    ...rest
-  }) => {
+const ButtonIOS: React.FC<ButtonProps> = React.forwardRef(
+  (
+    {
+      label,
+      onPress,
+      testID,
+      accessibilityLabel,
+      disabled = false,
+      touchSoundDisabled = true,
+      ...rest
+    },
+    ref
+  ) => {
     return (
       <TouchableBox
+        ref={ref}
         testID={testID}
         onPress={onPress}
         disabled={disabled}
@@ -43,19 +47,22 @@ const ButtonIOS: React.FC<ButtonProps> = React.memo(
   }
 )
 
-const ButtonAndroid: React.FC<ButtonProps> = React.memo(
-  ({
-    label,
-    onPress,
-    testID,
-    bg,
-    accessibilityLabel,
-    disabled = false,
-    touchSoundDisabled = true,
-    ...rest
-  }) => {
+const ButtonAndroid: React.FC<ButtonProps> = React.forwardRef(
+  (
+    {
+      label,
+      onPress,
+      testID,
+      bg,
+      accessibilityLabel,
+      disabled = false,
+      touchSoundDisabled = true,
+      ...rest
+    },
+    ref
+  ) => {
     return (
-      <Box overflow='hidden' {...rest}>
+      <Box overflow='hidden' {...rest} ref={ref}>
         <TouchableNativeFeedback
           testID={testID}
           onPress={onPress}
@@ -82,7 +89,7 @@ const ButtonAndroid: React.FC<ButtonProps> = React.memo(
 )
 
 export const Button: React.FC<ButtonProps> =
-  Platform.OS === 'android' ? ButtonAndroid : ButtonIOS
+  Platform.OS === 'android' ? React.memo(ButtonAndroid) : React.memo(ButtonIOS)
 
 Button.defaultProps = {
   bg: 'primary',
