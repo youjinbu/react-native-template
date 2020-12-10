@@ -17,4 +17,4 @@
 -keep class com.helloworld.BuildConfig { *; }
 
 # turbomodule
--keep class com.facebok.react.turbomodule.** { *; }
+-keep class com.facebook.react.turbomodule.** { *; }
