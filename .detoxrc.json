@@ -1,0 +1,26 @@
+{
+  "testRunner": "jest",
+  "runnerConfig": "e2e/config.json",
+  "configurations": {
+    "ios.sim.debug": {
+      "binaryPath": "template/ios/build/Build/Products/Debug-iphonesimulator/HelloWorld.app",
+      "build": "RCT_NO_LAUNCH_PACKAGER=true xcodebuild -workspace template/ios/HelloWorld.xcworkspace -scheme HelloWorld -configuration Debug -sdk iphonesimulator -derivedDataPath template/ios/build -quiet",
+      "type": "ios.simulator",
+      "name": "iPhone 12"
+    },
+    "android.emu.release.local": {
+      "binaryPath": "template/android/app/build/outputs/apk/release/app-release.apk",
+      "testBinaryPath": "template/android/app/build/outputs/apk/androidTest/release/app-release-androidTest.apk",
+      "build": "cd template/android; DETOX=true ./gradlew app:assembleRelease app:assembleAndroidTest -DtestBuildType=release --no-daemon; cd -",
+      "type": "android.emulator",
+      "name": "Pixel_4_API_29"
+    },
+    "android.emu.release": {
+      "binaryPath": "template/android/app/build/outputs/apk/release/app-release.apk",
+      "testBinaryPath": "template/android/app/build/outputs/apk/androidTest/release/app-release-androidTest.apk",
+      "build": "cd template/android; DETOX=true ./gradlew app:assembleRelease app:assembleAndroidTest -DtestBuildType=release --no-daemon; cd -",
+      "type": "android.emulator",
+      "name": "Nexus_6_API_29"
+    }
+  }
+}

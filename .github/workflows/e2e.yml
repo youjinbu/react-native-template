@@ -1,16 +1,16 @@
-name: build
+name: e2e
 
 on:
   push:
-    branches: [master]
+    branches: [master, e2e]
     paths-ignore:
       - 'LICENSE'
       - '**.md'
       - 'template.config.js'
 
 jobs:
-  apk:
-    runs-on: ubuntu-latest
+  android:
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
@@ -33,7 +33,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Install dependencies
+      - name: Prepare
+        run: brew install imagemagick
+
+      - name: Install repo dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Install template dependencies
         working-directory: ./template
         run: |
           yarn install --frozen-lockfile
@@ -41,14 +47,30 @@ jobs:
           npx app-icon generate
 
       - name: Build apk
-        working-directory: ./template
         run: |
-          cp .env.example .env
-          cd android
-          ./gradlew assembleRelease --no-daemon
+          cp template/.env.example template/.env
+          yarn build-android-e2e
+
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          target: google_apis
+          arch: x86_64
+          profile: Nexus 6
+          avd-name: Nexus_6_API_29
+          script: yarn test-android-e2e --take-screenshots all
+
+      - name: Upload Screenshots
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: screenshots-android
+          path: artifacts
+          retention-days: 15
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Apk
+          name: apk
           path: template/android/app/build/outputs/apk/release/app-release.apk
+          retention-days: 15

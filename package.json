@@ -15,6 +15,20 @@
     "!template/android/.gradle/"
   ],
   "repository": "https://github.com/youjinbu/react-native-template",
-  "keywords": ["react-native", "react-native-template"],
-  "license": "MIT"
+  "keywords": [
+    "react-native",
+    "react-native-template"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build-ios-e2e": "detox build -c ios.sim.debug",
+    "build-android-e2e": "detox build -c android.emu.release",
+    "test-ios-e2e": "detox test -c ios.sim.debug",
+    "test-android-e2e": "detox test -c android.emu.release"
+  },
+  "devDependencies": {
+    "detox": "18.2.2",
+    "jest": "26.6.3",
+    "jest-circus": "26.6.3"
+  }
 }
