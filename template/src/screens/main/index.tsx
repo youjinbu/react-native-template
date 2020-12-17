@@ -46,6 +46,7 @@ export default function MainScreen() {
           label='Login'
           width='50%'
           style={style}
+          testID='login'
           onPress={() => navigation.navigate('login-stack')}
         />
       </PanGestureHandler>

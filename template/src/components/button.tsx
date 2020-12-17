@@ -1,5 +1,9 @@
 import React from 'react'
-import {Platform, TouchableNativeFeedback} from 'react-native'
+import {
+  Platform,
+  AccessibilityRole,
+  TouchableNativeFeedback,
+} from 'react-native'
 import {BoxProps} from '@shopify/restyle'
 import {Theme} from 'shared/theme'
 import {Text, Box, TouchableBox} from './restyle-components'
@@ -8,6 +12,7 @@ type ButtonProps = BoxProps<Theme> & {
   label: string
   disabled?: boolean
   accessibilityLabel?: string
+  accessibilityRole?: AccessibilityRole
   touchSoundDisabled?: boolean
   onPress?: () => void
   testID?: string
@@ -15,26 +20,15 @@ type ButtonProps = BoxProps<Theme> & {
 
 const ButtonIOS: React.FC<ButtonProps> = React.forwardRef(
   (
-    {
-      label,
-      onPress,
-      testID,
-      accessibilityLabel,
-      disabled = false,
-      touchSoundDisabled = true,
-      ...rest
-    },
+    {label, onPress, disabled = false, touchSoundDisabled = true, ...rest},
     ref
   ) => {
     return (
       <TouchableBox
         ref={ref}
-        testID={testID}
         onPress={onPress}
         disabled={disabled}
         touchSoundDisabled={touchSoundDisabled}
-        accessibilityRole='button'
-        accessibilityLabel={accessibilityLabel}
         accessibilityState={{disabled}}
         alignItems='center'
         justifyContent='center'
@@ -49,28 +43,20 @@ const ButtonIOS: React.FC<ButtonProps> = React.forwardRef(
 
 const ButtonAndroid: React.FC<ButtonProps> = React.forwardRef(
   (
-    {
-      label,
-      onPress,
-      testID,
-      bg,
-      accessibilityLabel,
-      disabled = false,
-      touchSoundDisabled = true,
-      ...rest
-    },
+    {label, onPress, bg, disabled = false, touchSoundDisabled = true, ...rest},
     ref
   ) => {
     return (
-      <Box overflow='hidden' {...rest} ref={ref}>
+      <Box
+        ref={ref}
+        overflow='hidden'
+        accessibilityState={{disabled}}
+        {...rest}
+      >
         <TouchableNativeFeedback
-          testID={testID}
           onPress={onPress}
           disabled={disabled}
           touchSoundDisabled={touchSoundDisabled}
-          accessibilityRole='button'
-          accessibilityLabel={accessibilityLabel}
-          accessibilityState={{disabled}}
         >
           <Box
             flex={1}
@@ -95,4 +81,5 @@ Button.defaultProps = {
   bg: 'primary',
   height: 50,
   borderRadius: 10,
+  accessibilityRole: 'button',
 }
