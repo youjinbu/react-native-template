@@ -34,7 +34,7 @@
     "@types/react-native": "0.63.37",
     "@youjinbu/eslint-config": "0.4.1",
     "@youjinbu/prettier-config": "0.0.1",
-    "babel-plugin-module-resolver": "4.0.0",
+    "babel-plugin-module-resolver": "4.1.0",
     "eslint": "7.15.0",
     "metro-react-native-babel-preset": "0.63.0",
     "prettier": "2.2.1",
