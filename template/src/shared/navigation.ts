@@ -6,10 +6,10 @@ import {StackScreenProps} from '@react-navigation/stack'
 import {useNavigation as useNavigationNative} from '@react-navigation/native'
 
 export type RootStackParamList = {
-  main: undefined
+  'main-stack': undefined
+  'login-stack': undefined
   login: undefined
   register: undefined
-  'login-stack': undefined
   'sms-verification': {tel: string}
 }
 

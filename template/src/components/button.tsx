@@ -8,7 +8,7 @@ import {BoxProps} from '@shopify/restyle'
 import {Theme} from 'shared/theme'
 import {Text, Box, TouchableBox} from './restyle-components'
 
-type ButtonProps = BoxProps<Theme> & {
+export type ButtonProps = BoxProps<Theme> & {
   label: string
   disabled?: boolean
   accessibilityLabel?: string

@@ -10,7 +10,8 @@ import Animated, {
 import {useNavigation} from 'shared/navigation'
 import {Box, Button} from 'components'
 
-const AnimatedButton = Animated.createAnimatedComponent(Button)
+// TODO anyscript
+const AnimatedButton = Animated.createAnimatedComponent<any, any>(Button)
 
 export default function MainScreen() {
   const navigation = useNavigation()
