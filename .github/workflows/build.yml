@@ -35,12 +35,15 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./template
-        run: yarn install --frozen-lockfile
+        run: |
+          yarn install --frozen-lockfile
+          npx app-icon init
+          npx app-icon generate
 
       - name: Build apk
         working-directory: ./template
         run: |
-          cp _env.example .env
+          cp .env.example .env
           cd android
           ./gradlew assembleRelease --no-daemon
 

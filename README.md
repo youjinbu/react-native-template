@@ -2,12 +2,11 @@ A react native template with these changes:
 
 ### dependencies
 - [@shopify/restyle](https://github.com/Shopify/restyle)
-- [react-navigation](https://reactnavigation.org/)
-- [react-native-unimodules](https://github.com/expo/expo/tree/master/packages/react-native-unimodules)
-- [react-native-config](https://github.com/luggit/react-native-config)
+- [expo-splash-screen](https://github.com/expo/expo/tree/master/packages/expo-splash-screen)
 - [expo-updates](https://github.com/expo/expo/tree/master/packages/expo-updates)
 - [expo-web-browser](https://github.com/expo/expo/tree/master/packages/expo-web-browser)
-- [expo-splash-screen](https://github.com/expo/expo/tree/master/packages/expo-splash-screen)
+- [react-native-config](https://github.com/luggit/react-native-config)
+- [react-navigation](https://reactnavigation.org/)
 
 ### devDependencies
 - [TypeScript](typescriptlang.org)
@@ -29,7 +28,7 @@ A react native template with these changes:
 
 ### Install
 ```
-npx react-native init projectName --template @youjinbu/react-native
+npx react-native init projectName --template https://github.com/youjinbu/react-native-template
 mv .env.example .env
 ```
 

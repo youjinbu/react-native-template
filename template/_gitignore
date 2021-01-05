@@ -63,3 +63,6 @@ buck-out/
 .expo
 dist
 .env
+android/app/src/*/res/*/ic_launcher*.png
+android/app/src/main/java/**/generated/BasePackageList.java
+ios/*/Images.xcassets/AppIcon.appiconset/

@@ -63,3 +63,6 @@ Pods
 .expo
 template/dist
 template/.env
+template/android/app/src/*/res/*/ic_launcher*.png
+template/android/app/src/main/java/**/generated/BasePackageList.java
+template/ios/*/Images.xcassets/AppIcon.appiconset/
