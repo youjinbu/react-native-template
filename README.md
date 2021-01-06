@@ -30,11 +30,12 @@ A react native template with these changes:
 ```
 npx react-native init projectName --template https://github.com/youjinbu/react-native-template
 mv .env.example .env
+// update the apple development team id in .env
 ```
 
 ### iOS
 ```
-DEVELOPMENT_TEAM=your_apple_team_id yarn xcodegen
+yarn xcodegen
 npx pod-install
 yarn ios --simulator "iPhone 12"
 ```
