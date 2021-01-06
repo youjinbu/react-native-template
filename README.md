@@ -29,8 +29,7 @@ A react native template with these changes:
 ### Install
 ```
 npx react-native init projectName --template https://github.com/youjinbu/react-native-template
-mv .env.example .env
-// update the apple development team id in .env
+mv .env.example .env // and update the apple DEVELOPMENT_TEAM in .env
 ```
 
 ### iOS
@@ -42,6 +41,8 @@ yarn ios --simulator "iPhone 12"
 
 ### Android
 ```
+npx app-icon init // or cp your icon.png to project root
+npx app-icon generate -p android
 yarn android
 ```
 
