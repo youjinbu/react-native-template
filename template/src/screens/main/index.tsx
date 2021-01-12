@@ -8,10 +8,15 @@ import Animated, {
   useAnimatedGestureHandler,
 } from 'react-native-reanimated'
 import {useNavigation} from 'shared/navigation'
-import {Box, Button} from 'components'
+import {Box, Button, ButtonProps} from 'components'
 
-// TODO anyscript
-const AnimatedButton = Animated.createAnimatedComponent<any, any>(Button)
+class ButtonClass extends React.Component<ButtonProps> {
+  render() {
+    return <Button {...this.props} />
+  }
+}
+
+const AnimatedButton = Animated.createAnimatedComponent(ButtonClass)
 
 export default function MainScreen() {
   const navigation = useNavigation()

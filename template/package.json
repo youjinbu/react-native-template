@@ -7,7 +7,8 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "lint": "tsc && eslint src"
+    "lint": "tsc && eslint src",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "1.13.2",
@@ -31,13 +32,14 @@
   "devDependencies": {
     "@babel/core": "7.12.10",
     "@babel/runtime": "7.12.5",
-    "@types/react-native": "0.63.43",
-    "@youjinbu/eslint-config": "0.4.1",
+    "@types/react-native": "0.63.45",
+    "@youjinbu/eslint-config": "0.4.2",
     "@youjinbu/prettier-config": "0.0.1",
     "babel-plugin-module-resolver": "4.1.0",
     "dotenv-cli": "4.0.0",
     "eslint": "7.17.0",
     "metro-react-native-babel-preset": "0.63.0",
+    "patch-package": "6.2.2",
     "prettier": "2.2.1",
     "typescript": "4.1.3"
   },

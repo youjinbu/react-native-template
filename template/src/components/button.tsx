@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  ViewProps,
   Platform,
   AccessibilityRole,
   TouchableNativeFeedback,
@@ -8,15 +9,16 @@ import {BoxProps} from '@shopify/restyle'
 import {Theme} from 'shared/theme'
 import {Text, Box, TouchableBox} from './restyle-components'
 
-export type ButtonProps = BoxProps<Theme> & {
-  label: string
-  disabled?: boolean
-  accessibilityLabel?: string
-  accessibilityRole?: AccessibilityRole
-  touchSoundDisabled?: boolean
-  onPress?: () => void
-  testID?: string
-}
+export type ButtonProps = ViewProps &
+  BoxProps<Theme> & {
+    label: string
+    disabled?: boolean
+    accessibilityLabel?: string
+    accessibilityRole?: AccessibilityRole
+    touchSoundDisabled?: boolean
+    onPress?: () => void
+    testID?: string
+  }
 
 const ButtonIOS: React.FC<ButtonProps> = React.forwardRef(
   (
