@@ -1,87 +1,118 @@
 import React from 'react'
-import {
-  ViewProps,
-  Platform,
-  AccessibilityRole,
-  TouchableNativeFeedback,
-} from 'react-native'
-import {BoxProps} from '@shopify/restyle'
-import {Theme} from 'shared/theme'
-import {Text, Box, TouchableBox} from './restyle-components'
+import {ViewProps, Platform} from 'react-native'
+import {BoxProps, ColorProps} from 'shared/theme'
+import {Text, Box, RectButton, TouchableBox} from './restyle-components'
+
+type ButtonType = 'primary' | 'secondary' | undefined
 
 export type ButtonProps = ViewProps &
-  BoxProps<Theme> & {
+  BoxProps & {
     label: string
+    labelColor?: ColorProps['color']
+    type?: ButtonType
     disabled?: boolean
-    accessibilityLabel?: string
-    accessibilityRole?: AccessibilityRole
+    icon?: React.ReactNode
     touchSoundDisabled?: boolean
     onPress?: () => void
-    testID?: string
   }
 
-const ButtonIOS: React.FC<ButtonProps> = React.forwardRef(
+function getButtonProps(
+  type: ButtonType,
+  props: Partial<ButtonProps>
+): Partial<ButtonProps> {
+  if (type === 'secondary') {
+    return {...props, labelColor: 'text', bg: 'bg'}
+  }
+
+  if (type === 'primary') {
+    return {...props, labelColor: 'white', bg: 'primary'}
+  }
+
+  // fallback to primary
+  return {labelColor: 'white', bg: 'primary', ...props}
+}
+
+export const ButtonIOS: React.FC<ButtonProps> = React.forwardRef(
   (
-    {label, onPress, disabled = false, touchSoundDisabled = true, ...rest},
+    {
+      icon,
+      label,
+      type,
+      onPress,
+      disabled = false,
+      touchSoundDisabled,
+      height = 50,
+      borderRadius = 10,
+      ...props
+    },
     ref
   ) => {
+    const {bg, labelColor, ...rest} = getButtonProps(type, props)
     return (
       <TouchableBox
         ref={ref}
         onPress={onPress}
         disabled={disabled}
-        touchSoundDisabled={touchSoundDisabled}
         accessibilityState={{disabled}}
+        accessibilityRole='button'
         alignItems='center'
         justifyContent='center'
+        flexDirection='row'
         activeOpacity={0.75}
+        bg={bg}
+        height={height}
+        borderRadius={borderRadius}
         {...rest}
       >
-        <Text color='white'>{label}</Text>
+        {icon}
+        <Text color={labelColor}>{label}</Text>
       </TouchableBox>
     )
   }
 )
 
-const ButtonAndroid: React.FC<ButtonProps> = React.forwardRef(
+export const ButtonAndroid: React.FC<ButtonProps> = React.forwardRef(
   (
-    {label, onPress, bg, disabled = false, touchSoundDisabled = true, ...rest},
+    {
+      label,
+      type,
+      onPress,
+      disabled = false,
+      touchSoundDisabled = true,
+      height = 50,
+      borderRadius = 10,
+      icon,
+      ...props
+    },
     ref
   ) => {
+    const {bg, labelColor, ...rest} = getButtonProps(type, props)
     return (
-      <Box
+      <RectButton
         ref={ref}
+        bg={bg}
+        height={height}
+        borderRadius={borderRadius}
         overflow='hidden'
-        accessibilityState={{disabled}}
+        onPress={disabled ? undefined : onPress}
         {...rest}
       >
-        <TouchableNativeFeedback
-          onPress={onPress}
-          disabled={disabled}
-          touchSoundDisabled={touchSoundDisabled}
+        <Box
+          accessible
+          height='100%'
+          alignItems='center'
+          justifyContent='center'
+          flexDirection='row'
+          accessibilityState={{disabled}}
+          accessibilityRole='button'
         >
-          <Box
-            flex={1}
-            bg={bg}
-            alignItems='center'
-            justifyContent='center'
-            borderRadius={rest.borderRadius}
-            elevation={disabled ? 0 : 2}
-          >
-            <Text color='white'>{label}</Text>
-          </Box>
-        </TouchableNativeFeedback>
-      </Box>
+          {icon}
+          <Text color={labelColor}>{label}</Text>
+        </Box>
+      </RectButton>
     )
   }
 )
 
 export const Button: React.FC<ButtonProps> =
   Platform.OS === 'android' ? React.memo(ButtonAndroid) : React.memo(ButtonIOS)
-
-Button.defaultProps = {
-  bg: 'primary',
-  height: 50,
-  borderRadius: 10,
-  accessibilityRole: 'button',
-}

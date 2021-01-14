@@ -1,4 +1,9 @@
-import {createTheme, useTheme as useRestyledTheme} from '@shopify/restyle'
+import {
+  createTheme,
+  BoxProps as ReBoxProps,
+  ColorProps as ReColorProps,
+  useTheme as useRestyledTheme,
+} from '@shopify/restyle'
 
 const palette = {
   bg: '#f8f8f8',
@@ -84,3 +89,6 @@ export type Theme = typeof theme
 export function useTheme() {
   return useRestyledTheme<Theme>()
 }
+
+export type BoxProps = ReBoxProps<Theme>
+export type ColorProps = ReColorProps<Theme>
