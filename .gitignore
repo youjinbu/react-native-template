@@ -60,6 +60,9 @@ Pods
 *.xcodeproj
 *.xcworkspace
 
+# e2e
+artifacts
+
 .expo
 template/dist
 template/.env
