@@ -1947,7 +1947,7 @@
     eslint-plugin-react-hooks "4.2.0"
     eslint-plugin-unicorn "25.0.1"
 
-"@youjinbu/prettier-config@0.0.1":
+"@youjinbu/prettier-config@0.0.1", jsc-android@^245459.0.0, "jsc-android@https://registry.yarnpkg.com/@youjinbu/prettier-config/-/prettier-config-0.0.1.tgz":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@youjinbu/prettier-config/-/prettier-config-0.0.1.tgz#69495bb24173a227ebd5705667ac2669944cd886"
   integrity sha512-e0ebwaK7ScgpnrtVIg1nvSNm2dXSTX3xI5coqygFfP/5BfAiYAonK62ktDv5fBJpKcTcqtM1moFU1h86q16ImQ==
@@ -4561,11 +4561,6 @@ js-yaml@^3.13.1:
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
-
-jsc-android@^245459.0.0:
-  version "245459.0.0"
-  resolved "https://registry.yarnpkg.com/jsc-android/-/jsc-android-245459.0.0.tgz#e584258dd0b04c9159a27fb104cd5d491fd202c9"
-  integrity sha512-wkjURqwaB1daNkDi2OYYbsLnIdC/lUM2nPXQKRs5pqEU9chDg435bjvo+LSaHotDENygHQDHe+ntUkkw2gwMtg==
 
 jsesc@^2.5.1:
   version "2.5.2"
