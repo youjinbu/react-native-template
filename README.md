@@ -19,6 +19,7 @@ A react native template with these changes:
 - enable proguard
 
 ### others
+- [patch-package](https://github.com/ds300/patch-package)
 - rm xcodeproj ([thanks](https://github.com/pvinis/react-native-xcodegen) to [xcodegen](https://github.com/yonaskolb/XcodeGen))
 - rm useless ios targets and tests
 - rm [flipper](https://fbflipper.com/) in iOS
