@@ -17,7 +17,7 @@ PODS:
   - EXSplashScreen (0.8.1):
     - React-Core
     - UMCore
-  - EXUpdates (0.4.1):
+  - EXUpdates (0.4.2):
     - React-Core
     - UMCore
   - EXWebBrowser (8.6.0):
@@ -276,7 +276,7 @@ PODS:
     - React-Core
   - RNCMaskedView (0.1.10):
     - React
-  - RNGestureHandler (1.9.0):
+  - RNGestureHandler (1.10.1):
     - React-Core
   - RNReanimated (2.0.0-rc.3):
     - DoubleConversion
@@ -505,7 +505,7 @@ SPEC CHECKSUMS:
   EXImageLoader: f96ec9992733a4224418bbd9382e5485c8948944
   EXPermissions: 17d4846ad1880f6891c74ae58ca1acb43e47ed47
   EXSplashScreen: 8c7c1112ce7611a853486af4737fe2298eda7657
-  EXUpdates: 28368049118dbe4ceaf4422ec72e0ad5f770df1f
+  EXUpdates: 5124c03b19730078482a27b97fcb4718b06ca6b5
   EXWebBrowser: cb4811e6c883876d2e2ba1c10527de96963d410a
   FBLazyVector: 3bb422f41b18121b71783a905c10e58606f7dc3e
   FBReactNativeSpec: f2c97f2529dd79c083355182cc158c9f98f4bd6e
@@ -535,7 +535,7 @@ SPEC CHECKSUMS:
   ReactCommon: 73d79c7039f473b76db6ff7c6b159c478acbbb3b
   RNCAsyncStorage: 44539979e1f234262d64d3ce86ec21cceb1b2c5e
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
-  RNGestureHandler: 9b7e605a741412e20e13c512738a31bd1611759b
+  RNGestureHandler: 5e58135436aacc1c5d29b75547d3d2b9430d052c
   RNReanimated: ca4f28c765329144d68bdad126bf6b0b1afc7a5a
   RNScreens: b6c9607e6fe47c1b6e2f1910d2acd46dd7ecea3a
   UMAppLoader: 92d044af52626af3d81a69796ad666fc7a9a7d78
