@@ -12,6 +12,9 @@ jobs:
   apk:
     runs-on: ubuntu-latest
     steps:
+      - uses: styfle/cancel-workflow-action@0.8.0
+        with:
+          access_token: ${{ github.token }}
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
         with:
