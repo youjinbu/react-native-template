@@ -49,6 +49,7 @@ targets:
       parallelizeBuild: false
     settings:
       base:
+        TARGETED_DEVICE_FAMILY: 1
         PRODUCT_BUNDLE_IDENTIFIER: dev.reactnative.youjinbu.$(PRODUCT_NAME:rfc1034identifier)
         CLANG_ENABLE_MODULES: true
         OTHER_LDFLAGS:
