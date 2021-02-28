@@ -37,7 +37,7 @@
     "@youjinbu/prettier-config": "0.0.1",
     "babel-plugin-module-resolver": "4.1.0",
     "dotenv-cli": "4.0.0",
-    "eslint": "7.20.0",
+    "eslint": "7.21.0",
     "metro-react-native-babel-preset": "0.65.1",
     "patch-package": "6.2.2",
     "prettier": "2.2.1",
