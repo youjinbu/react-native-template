@@ -14,7 +14,7 @@ import expo.modules.splashscreen.SplashScreenImageResizeMode;
 public class MainActivity extends ReactActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
+    super.onCreate(null);
     SplashScreen.show(this, SplashScreenImageResizeMode.NATIVE, ReactRootView.class, false);
   }
 
