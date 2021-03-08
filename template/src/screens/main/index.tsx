@@ -8,15 +8,7 @@ import Animated, {
   useAnimatedGestureHandler,
 } from 'react-native-reanimated'
 import {useNavigation} from 'shared/navigation'
-import {Box, Button, ButtonProps} from 'components'
-
-class ButtonClass extends React.Component<ButtonProps> {
-  render() {
-    return <Button {...this.props} />
-  }
-}
-
-const AnimatedButton = Animated.createAnimatedComponent(ButtonClass)
+import {Box, Button} from 'components'
 
 export default function MainScreen() {
   const navigation = useNavigation()
@@ -48,14 +40,18 @@ export default function MainScreen() {
       style={StyleSheet.absoluteFill}
     >
       <PanGestureHandler onGestureEvent={onGestureEvent}>
-        <AnimatedButton
-          label='Login'
-          width='50%'
-          style={style}
-          testID='login'
-          onPress={() => navigation.navigate('login-stack')}
+        <Animated.View
+          style={[
+            style,
+            {width: 50, height: 50, backgroundColor: 'grey', marginBottom: 50},
+          ]}
         />
       </PanGestureHandler>
+      <Button
+        label='Login'
+        width='50%'
+        onPress={() => navigation.navigate('login-stack')}
+      />
     </Box>
   )
 }

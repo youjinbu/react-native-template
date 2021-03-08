@@ -32,10 +32,10 @@ export function MainNavigator() {
           tabBarButton: () => (
             <Box justifyContent='center'>
               <Button
-                label='+'
-                height={30}
-                width={30}
-                borderRadius={15}
+                label=''
+                height={40}
+                width={40}
+                borderRadius={20}
                 onPress={() => navigation.navigate('login-stack')}
               />
             </Box>
