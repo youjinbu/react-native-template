@@ -2,7 +2,7 @@ name: HelloWorld
 
 options:
   deploymentTarget:
-    iOS: "10.0"
+    iOS: "11.0"
   usesTabs: false
   tabWidth: 2
   indentWidth: 2
@@ -50,7 +50,7 @@ targets:
     settings:
       base:
         TARGETED_DEVICE_FAMILY: 1
-        PRODUCT_BUNDLE_IDENTIFIER: dev.reactnative.youjinbu.$(PRODUCT_NAME:rfc1034identifier)
+        PRODUCT_BUNDLE_IDENTIFIER: $(BUNDLE_IDENTIFIER)
         CLANG_ENABLE_MODULES: true
         OTHER_LDFLAGS:
           - $(inherited)
