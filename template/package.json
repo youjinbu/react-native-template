@@ -30,8 +30,8 @@
     "react-native-unimodules": "0.12.0"
   },
   "devDependencies": {
-    "@babel/core": "7.13.8",
-    "@babel/runtime": "7.13.9",
+    "@babel/core": "7.13.10",
+    "@babel/runtime": "7.13.10",
     "@types/react-native": "0.63.51",
     "@youjinbu/eslint-config": "0.4.4",
     "@youjinbu/prettier-config": "0.0.1",
