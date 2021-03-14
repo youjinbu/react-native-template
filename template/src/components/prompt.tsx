@@ -61,7 +61,7 @@ const PromptComponent: React.RefForwardingComponent<
     clearTimeout(timerRef.current)
     timerRef.current = 0
     if (autohide) {
-      timerRef.current = setTimeout(hide, duration)
+      timerRef.current = setTimeout(hide, duration) as any
     }
   }, [hide, duration, autohide])
 

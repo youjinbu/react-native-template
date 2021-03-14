@@ -8,14 +8,8 @@ target 'HelloWorld' do
   use_unimodules!(exclude: ['expo-face-detector'])
   config = use_native_modules!
 
-  use_react_native!(:path => config["reactNativePath"])
-
-  # Enables Flipper.
-  #
-  # Note that if you have use_frameworks! enabled, Flipper will not work and
-  # you should disable these next few lines.
-  # use_flipper!
-  # post_install do |installer|
-  #   flipper_post_install(installer)
-  # end
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
 end
