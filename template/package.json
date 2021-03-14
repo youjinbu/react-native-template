@@ -30,16 +30,16 @@
     "react-native-unimodules": "0.12.0"
   },
   "devDependencies": {
-    "@babel/core": "7.13.8",
-    "@babel/runtime": "7.13.9",
+    "@babel/core": "7.13.10",
+    "@babel/runtime": "7.13.10",
     "@types/react-native": "0.63.51",
     "@youjinbu/eslint-config": "0.4.4",
     "@youjinbu/prettier-config": "0.0.1",
     "babel-plugin-module-resolver": "4.1.0",
     "dotenv-cli": "4.0.0",
-    "eslint": "7.21.0",
+    "eslint": "7.22.0",
     "metro-react-native-babel-preset": "0.65.2",
-    "patch-package": "6.4.5",
+    "patch-package": "6.4.7",
     "prettier": "2.2.1",
     "typescript": "4.2.3"
   },
