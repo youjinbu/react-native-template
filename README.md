@@ -7,23 +7,26 @@ A react native template with these changes:
 - [expo-web-browser](https://github.com/expo/expo/tree/master/packages/expo-web-browser)
 - [react-native-config](https://github.com/luggit/react-native-config)
 - [react-navigation](https://reactnavigation.org/)
+- [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated)
+- [react-native-screens](https://github.com/software-mansion/react-native-screens)
 
 ### devDependencies
 - [TypeScript](typescriptlang.org)
-- [Prettier](https://prettier.io/) (with [@youjinbu/prettier](https://github.com/youjinbu/config/tree/master/packages/prettier))
-- [ESLint](https://eslint.org/) (with [@youjinbu/eslint-config](https://github.com/youjinbu/config/tree/master/packages/eslint))
+- [Prettier](https://prettier.io/) ([@youjinbu/prettier](https://github.com/youjinbu/config/tree/master/packages/prettier))
+- [ESLint](https://eslint.org/) ([@youjinbu/eslint-config](https://github.com/youjinbu/config/tree/master/packages/eslint))
 - [babel-plugin-module-resolver](https://github.com/tleunen/babel-plugin-module-resolver)
 
 ### feature flags
-- enable [hermes](https://hermesengine.dev/) (Android only)
+- enable [hermes](https://hermesengine.dev/)
 - enable proguard
 
 ### others
 - [patch-package](https://github.com/ds300/patch-package)
-- rm xcodeproj ([thanks](https://github.com/pvinis/react-native-xcodegen) to [xcodegen](https://github.com/yonaskolb/XcodeGen))
-- rm useless ios targets and tests
-- rm [flipper](https://fbflipper.com/) in iOS
-- rm [BUCK](https://github.com/facebook/buck) files
+- rm ~~xcodeproj~~ ([thanks](https://github.com/pvinis/react-native-xcodegen) to [xcodegen](https://github.com/yonaskolb/XcodeGen))
+- rm ~~useless ios targets and tests~~
+- rm ~~[flipper](https://fbflipper.com/)~~
+- rm ~~[BUCK](https://github.com/facebook/buck) files~~
+- rm ~~[jsc-android](https://www.npmjs.com/package/jsc-android)~~ deps
 
 ## Usage
 
