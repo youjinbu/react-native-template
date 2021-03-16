@@ -85,5 +85,6 @@ targets:
           set -e
 
           export NODE_BINARY=node
+          export HERMES_ARGS=-w
           ../node_modules/react-native/scripts/react-native-xcode.sh
           ../node_modules/expo-updates/scripts/create-manifest-ios.sh
