@@ -2,7 +2,6 @@ import 'react-native-gesture-handler'
 
 import React from 'react'
 import {StatusBar} from 'react-native'
-import {enableScreens} from 'react-native-screens'
 import {NavigationContainer} from '@react-navigation/native'
 import {SafeAreaProvider} from 'react-native-safe-area-context'
 import {ThemeProvider} from '@shopify/restyle'
@@ -12,8 +11,6 @@ import {usePrompt} from 'shared/hooks'
 import {Stack} from 'shared/navigation'
 import {LoginNavigator} from './navigators/login'
 import {MainNavigator} from './navigators/main'
-
-enableScreens()
 
 export default function App() {
   return (
