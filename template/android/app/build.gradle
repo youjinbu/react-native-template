@@ -188,6 +188,22 @@ android {
             }
         }
     }
+
+    packagingOptions {
+        if (enableHermes) {
+            def taskName = getGradle().getStartParameter().getTaskRequests().toString()
+
+            exclude "**/libjsc*.so"
+            if (taskName.toLowerCase().contains("release")) {
+                exclude '**/libhermes-inspector.so'
+                exclude '**/libhermes-executor-debug.so'
+                exclude '**/libhermes-executor-common-debug.so'
+            } else {
+                exclude '**/libhermes-executor-release.so'
+                exclude '**/libhermes-executor-common-release.so'
+            }
+        }
+    }
 }
 
 dependencies {
