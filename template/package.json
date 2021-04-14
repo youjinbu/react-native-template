@@ -19,7 +19,7 @@
     "@shopify/restyle": "1.4.0",
     "expo-splash-screen": "0.8.1",
     "expo-updates": "0.4.2",
-    "expo-web-browser": "8.6.0",
+    "expo-web-browser": "9.1.0",
     "react": "17.0.2",
     "react-native": "0.64.0",
     "react-native-config": "1.4.2",
