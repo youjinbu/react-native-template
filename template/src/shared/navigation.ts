@@ -1,8 +1,8 @@
 import {
+  NativeStackScreenProps,
   NativeStackNavigationProp,
   createNativeStackNavigator,
 } from 'react-native-screens/native-stack'
-import {StackScreenProps} from '@react-navigation/stack'
 import {useNavigation as useNavigationNative} from '@react-navigation/native'
 
 export type RootStackParamList = {
@@ -13,10 +13,9 @@ export type RootStackParamList = {
   'sms-verification': {tel: string}
 }
 
-export type ScreenProps<T extends keyof RootStackParamList> = StackScreenProps<
-  RootStackParamList,
-  T
->
+export type ScreenProps<
+  T extends keyof RootStackParamList
+> = NativeStackScreenProps<RootStackParamList, T>
 
 export const Stack = createNativeStackNavigator<RootStackParamList>()
 
