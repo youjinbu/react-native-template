@@ -36,126 +36,124 @@ interface PromptProps {
   style?: ViewStyle
 }
 
-const PromptComponent: React.RefForwardingComponent<
-  PromptHandle,
-  PromptProps
-> = ({duration, autohide, onPress, style}, ref) => {
-  const timerRef = useRef(0)
-  const viewHeight = useRef(0)
-  const [text, setText] = useState('')
-  const {width} = useWindowDimensions()
-  const [translateY] = useState(() => new Animated.Value(-250))
-  const insets = useSafeAreaInsets()
-  const offset = insets.top + 0 // TODO
+const PromptComponent: React.RefForwardingComponent<PromptHandle, PromptProps> =
+  ({duration, autohide, onPress, style}, ref) => {
+    const timerRef = useRef(0)
+    const viewHeight = useRef(0)
+    const [text, setText] = useState('')
+    const {width} = useWindowDimensions()
+    const [translateY] = useState(() => new Animated.Value(-250))
+    const insets = useSafeAreaInsets()
+    const offset = insets.top + 0 // TODO
 
-  const hide = useCallback(() => {
-    Animated.timing(translateY, {
-      easing,
-      toValue: (viewHeight.current + NAVBAR_OFFSET + offset * 2) * -1,
-      duration: HIDE_DURATION,
-      useNativeDriver: true,
-    }).start()
-  }, [translateY, offset])
-
-  const hideLater = useCallback(() => {
-    clearTimeout(timerRef.current)
-    timerRef.current = 0
-    if (autohide) {
-      timerRef.current = setTimeout(hide, duration) as any
-    }
-  }, [hide, duration, autohide])
-
-  const show = useCallback(
-    (t: string) => {
-      setText(t)
-      hideLater()
-
-      Animated.spring(translateY, {
-        toValue: 0,
+    const hide = useCallback(() => {
+      Animated.timing(translateY, {
+        easing,
+        toValue: (viewHeight.current + NAVBAR_OFFSET + offset * 2) * -1,
+        duration: HIDE_DURATION,
         useNativeDriver: true,
       }).start()
-    },
-    [hideLater, translateY]
-  )
+    }, [translateY, offset])
 
-  useImperativeHandle(ref, () => ({show, hide}))
-
-  const onTapHandlerStateChange = useCallback(
-    ({nativeEvent: {state}}: TapGestureHandlerStateChangeEvent) => {
-      if (state === State.BEGAN) {
-        clearTimeout(timerRef.current)
-      } else if (state === State.ACTIVE) {
-        hide()
-        if (onPress) {
-          onPress()
-        }
+    const hideLater = useCallback(() => {
+      clearTimeout(timerRef.current)
+      timerRef.current = 0
+      if (autohide) {
+        timerRef.current = setTimeout(hide, duration) as any
       }
-    },
-    [onPress, hide]
-  )
+    }, [hide, duration, autohide])
 
-  const onGestureEvent = useCallback(
-    (event) => {
-      const {translationY} = event.nativeEvent
-      const value = translationY > 0 ? translationY / 9 : translationY / 1
-      translateY.setValue(value)
-    },
-    [translateY]
-  )
+    const show = useCallback(
+      (t: string) => {
+        setText(t)
+        hideLater()
 
-  function onLayout(e: LayoutChangeEvent) {
-    viewHeight.current = e.nativeEvent.layout.height || 0
-  }
+        Animated.spring(translateY, {
+          toValue: 0,
+          useNativeDriver: true,
+        }).start()
+      },
+      [hideLater, translateY]
+    )
 
-  const onHandlerStateChange = ({
-    nativeEvent,
-  }: PanGestureHandlerStateChangeEvent) => {
-    if (nativeEvent.state !== State.END) {
-      return
+    useImperativeHandle(ref, () => ({show, hide}))
+
+    const onTapHandlerStateChange = useCallback(
+      ({nativeEvent: {state}}: TapGestureHandlerStateChangeEvent) => {
+        if (state === State.BEGAN) {
+          clearTimeout(timerRef.current)
+        } else if (state === State.ACTIVE) {
+          hide()
+          if (onPress) {
+            onPress()
+          }
+        }
+      },
+      [onPress, hide]
+    )
+
+    const onGestureEvent = useCallback(
+      (event) => {
+        const {translationY} = event.nativeEvent
+        const value = translationY > 0 ? translationY / 9 : translationY / 1
+        translateY.setValue(value)
+      },
+      [translateY]
+    )
+
+    function onLayout(e: LayoutChangeEvent) {
+      viewHeight.current = e.nativeEvent.layout.height || 0
     }
 
-    const {velocityY, translationY, numberOfPointers} = nativeEvent
-    if (velocityY < MIN_VELOCITY_TO_FLING && numberOfPointers === 1) {
-      Animated.spring(translateY, {
-        toValue: (viewHeight.current + BOUNCE_OFFSET + offset * 2) * -1,
-        useNativeDriver: true,
-        velocity: velocityY,
-      }).start()
-      return
+    const onHandlerStateChange = ({
+      nativeEvent,
+    }: PanGestureHandlerStateChangeEvent) => {
+      if (nativeEvent.state !== State.END) {
+        return
+      }
+
+      const {velocityY, translationY, numberOfPointers} = nativeEvent
+      if (velocityY < MIN_VELOCITY_TO_FLING && numberOfPointers === 1) {
+        Animated.spring(translateY, {
+          toValue: (viewHeight.current + BOUNCE_OFFSET + offset * 2) * -1,
+          useNativeDriver: true,
+          velocity: velocityY,
+        }).start()
+        return
+      }
+
+      if (translationY > (viewHeight.current / 2) * -1) {
+        show(text)
+      } else {
+        hide()
+      }
     }
 
-    if (translationY > (viewHeight.current / 2) * -1) {
-      show(text)
-    } else {
-      hide()
-    }
-  }
-
-  return (
-    <PanGestureHandler
-      onHandlerStateChange={onHandlerStateChange}
-      onGestureEvent={onGestureEvent}
-    >
-      <Animated.View
-        onLayout={onLayout}
-        style={[
-          styles.prompt,
-          {width: width - 40},
-          style,
-          {top: offset, transform: [{translateY}]},
-        ]}
+    return (
+      <PanGestureHandler
+        onHandlerStateChange={onHandlerStateChange}
+        onGestureEvent={onGestureEvent}
       >
-        <TapGestureHandler onHandlerStateChange={onTapHandlerStateChange}>
-          <Box flex={1} justifyContent='center' alignItems='center'>
-            <Text fontSize={17} my='m'>
-              {text}
-            </Text>
-          </Box>
-        </TapGestureHandler>
-      </Animated.View>
-    </PanGestureHandler>
-  )
-}
+        <Animated.View
+          onLayout={onLayout}
+          style={[
+            styles.prompt,
+            {width: width - 40},
+            style,
+            {top: offset, transform: [{translateY}]},
+          ]}
+        >
+          <TapGestureHandler onHandlerStateChange={onTapHandlerStateChange}>
+            <Box flex={1} justifyContent='center' alignItems='center'>
+              <Text fontSize={17} my='m'>
+                {text}
+              </Text>
+            </Box>
+          </TapGestureHandler>
+        </Animated.View>
+      </PanGestureHandler>
+    )
+  }
 
 const styles = StyleSheet.create({
   prompt: {

@@ -15,8 +15,7 @@ export default function SmsVerificationScreen({
         title='输入手机验证码'
         subtitle={`已发送验证码到${route.params.tel}`}
         source={{
-          uri:
-            'https://github.com/facebook/react-native/raw/master/Libraries/NewAppScreen/components/logo.png',
+          uri: 'https://github.com/facebook/react-native/raw/master/Libraries/NewAppScreen/components/logo.png',
         }}
       >
         <Button

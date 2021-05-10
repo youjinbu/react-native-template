@@ -28,8 +28,7 @@ export default function LoginScreen() {
       <Card
         title='手机号登录注册'
         source={{
-          uri:
-            'https://github.com/facebook/react-native/raw/master/Libraries/NewAppScreen/components/logo.png',
+          uri: 'https://github.com/facebook/react-native/raw/master/Libraries/NewAppScreen/components/logo.png',
         }}
       >
         <Input

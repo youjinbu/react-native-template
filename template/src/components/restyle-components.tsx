@@ -18,26 +18,24 @@ import {Theme} from 'shared/theme'
 export const Box = createBox<Theme>()
 export const Text = createText<Theme>()
 
-export const TouchableBox = createBox<
-  Theme,
-  TouchableOpacityProps & {children?: React.ReactNode}
->(TouchableOpacity)
+export const TouchableBox =
+  createBox<Theme, TouchableOpacityProps & {children?: React.ReactNode}>(
+    TouchableOpacity
+  )
 
-export const PressableBox = createBox<
-  Theme,
-  PressableProps & {children?: React.ReactNode}
->(Pressable)
+export const PressableBox =
+  createBox<Theme, PressableProps & {children?: React.ReactNode}>(Pressable)
 
 export const Image = createBox<Theme, ImageProps>(RNImage)
 
-export const RectButton = createBox<
-  Theme,
-  RectButtonProperties & {children?: React.ReactNode}
->(RNGHRectButton)
+export const RectButton =
+  createBox<Theme, RectButtonProperties & {children?: React.ReactNode}>(
+    RNGHRectButton
+  )
 
-export const BorderlessButton = createBox<
-  Theme,
-  BorderlessButtonProperties & {children?: React.ReactNode}
->(RNGHBorderlessButton)
+export const BorderlessButton =
+  createBox<Theme, BorderlessButtonProperties & {children?: React.ReactNode}>(
+    RNGHBorderlessButton
+  )
 
 export type BoxProps = ReBoxProps<Theme>

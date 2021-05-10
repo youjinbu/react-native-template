@@ -13,9 +13,8 @@ export type RootStackParamList = {
   'sms-verification': {tel: string}
 }
 
-export type ScreenProps<
-  T extends keyof RootStackParamList
-> = NativeStackScreenProps<RootStackParamList, T>
+export type ScreenProps<T extends keyof RootStackParamList> =
+  NativeStackScreenProps<RootStackParamList, T>
 
 export const Stack = createNativeStackNavigator<RootStackParamList>()
 
