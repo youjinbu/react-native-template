@@ -12,11 +12,11 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "1.15.4",
-    "@react-navigation/bottom-tabs": "5.11.10",
+    "@react-navigation/bottom-tabs": "5.11.11",
     "@react-navigation/native": "5.9.4",
     "@shopify/restyle": "1.4.0",
     "expo-splash-screen": "0.10.2",
-    "expo-updates": "0.5.4",
+    "expo-updates": "0.5.5",
     "expo-web-browser": "9.1.0",
     "react": "17.0.2",
     "react-native": "0.64.1",
@@ -28,10 +28,10 @@
     "react-native-unimodules": "0.13.3"
   },
   "devDependencies": {
-    "@babel/core": "7.14.0",
+    "@babel/core": "7.14.3",
     "@babel/runtime": "7.14.0",
     "@types/react-native": "0.64.5",
-    "@youjinbu/eslint-config": "0.5.0",
+    "@youjinbu/eslint-config": "0.5.1",
     "@youjinbu/prettier-config": "0.0.1",
     "babel-plugin-module-resolver": "4.1.0",
     "dotenv-cli": "4.0.0",
