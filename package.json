@@ -15,6 +15,20 @@
     "!template/android/.gradle/"
   ],
   "repository": "https://github.com/youjinbu/react-native-template",
-  "keywords": ["react-native", "react-native-template"],
-  "license": "MIT"
+  "keywords": [
+    "react-native",
+    "react-native-template"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint template && tsc -p template"
+  },
+  "devDependencies": {
+    "@youjinbu/eslint-config": "0.6.1",
+    "@youjinbu/prettier-config": "0.0.1",
+    "eslint": "7.27.0",
+    "prettier": "2.3.0",
+    "typescript": "4.3.2"
+  },
+  "prettier": "@youjinbu/prettier-config"
 }

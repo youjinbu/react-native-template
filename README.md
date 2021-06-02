@@ -10,12 +10,6 @@ A react native template with these changes:
 - [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated)
 - [react-native-screens](https://github.com/software-mansion/react-native-screens)
 
-### devDependencies
-- [TypeScript](typescriptlang.org)
-- [Prettier](https://prettier.io/) ([@youjinbu/prettier](https://github.com/youjinbu/config/tree/master/packages/prettier))
-- [ESLint](https://eslint.org/) ([@youjinbu/eslint-config](https://github.com/youjinbu/config/tree/master/packages/eslint))
-- [babel-plugin-module-resolver](https://github.com/tleunen/babel-plugin-module-resolver)
-
 ### feature flags
 - enable [hermes](https://hermesengine.dev/)
 - enable proguard

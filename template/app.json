@@ -2,7 +2,7 @@
   "name": "HelloWorld",
   "displayName": "HelloWorld",
   "expo": {
-    "sdkVersion": "39.0.0",
+    "sdkVersion": "41.0.0",
     "runtimeVersion": "1"
   }
 }
