@@ -103,19 +103,6 @@ def enableSeparateBuildPerCPUArchitecture = true
 def enableProguardInReleaseBuilds = true
 
 /**
- * The preferred build flavor of JavaScriptCore.
- *
- * For example, to use the international variant, you can use:
- * `def jscFlavor = 'org.webkit:android-jsc-intl:+'`
- *
- * The international variant includes ICU i18n library and necessary data
- * allowing to use e.g. `Date.toLocaleString` and `String.localeCompare` that
- * give correct results when using with locales other than en-US.  Note that
- * this variant is about 6MiB larger per architecture than default.
- */
-def jscFlavor = 'org.webkit:android-jsc:+'
-
-/**
  * Whether to enable the Hermes VM.
  *
  * This should be set on project.ext.react and mirrored here.  If it is not set
@@ -190,18 +177,16 @@ android {
     }
 
     packagingOptions {
-        if (enableHermes) {
-            def taskName = getGradle().getStartParameter().getTaskRequests().toString()
+        def taskName = getGradle().getStartParameter().getTaskRequests().toString()
 
-            exclude "**/libjsc*.so"
-            if (taskName.toLowerCase().contains("release")) {
-                exclude '**/libhermes-inspector.so'
-                exclude '**/libhermes-executor-debug.so'
-                exclude '**/libhermes-executor-common-debug.so'
-            } else {
-                exclude '**/libhermes-executor-release.so'
-                exclude '**/libhermes-executor-common-release.so'
-            }
+        exclude "**/libjsc*.so"
+        if (taskName.toLowerCase().contains("release")) {
+            exclude '**/libhermes-inspector.so'
+            exclude '**/libhermes-executor-debug.so'
+            exclude '**/libhermes-executor-common-debug.so'
+        } else {
+            exclude '**/libhermes-executor-release.so'
+            exclude '**/libhermes-executor-common-release.so'
         }
     }
 }
@@ -215,13 +200,9 @@ dependencies {
 
     addUnimodulesDependencies()
 
-    if (enableHermes) {
-        def hermesPath = "../../node_modules/hermes-engine/android/";
-        debugImplementation files(hermesPath + "hermes-debug.aar")
-        releaseImplementation files(hermesPath + "hermes-release.aar")
-    } else {
-        implementation jscFlavor
-    }
+    def hermesPath = "../../node_modules/hermes-engine/android/";
+    debugImplementation files(hermesPath + "hermes-debug.aar")
+    releaseImplementation files(hermesPath + "hermes-release.aar")
 }
 
 // Run this once to be able to run the application with BUCK
