@@ -1,18 +1,14 @@
 import React, {useRef, useState, useCallback, useImperativeHandle} from 'react'
-import {
-  Easing,
-  Animated,
-  ViewStyle,
-  StyleSheet,
-  LayoutChangeEvent,
-  useWindowDimensions,
-} from 'react-native'
+import type {ViewStyle, LayoutChangeEvent} from 'react-native'
+import {Easing, Animated, StyleSheet, useWindowDimensions} from 'react-native'
+import type {
+  PanGestureHandlerStateChangeEvent,
+  TapGestureHandlerStateChangeEvent,
+} from 'react-native-gesture-handler'
 import {
   State,
   PanGestureHandler,
   TapGestureHandler,
-  PanGestureHandlerStateChangeEvent,
-  TapGestureHandlerStateChangeEvent,
 } from 'react-native-gesture-handler'
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
 import {Box, Text} from './restyle-components'

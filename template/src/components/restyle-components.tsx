@@ -1,19 +1,20 @@
-import {
-  Image as RNImage,
+import type {
   ImageProps,
-  Pressable,
   PressableProps,
-  TouchableOpacity,
   TouchableOpacityProps,
 } from 'react-native'
-import {
-  BorderlessButton as RNGHBorderlessButton,
+import {Image as RNImage, Pressable, TouchableOpacity} from 'react-native'
+import type {
   BorderlessButtonProperties,
-  RectButton as RNGHRectButton,
   RectButtonProperties,
 } from 'react-native-gesture-handler'
-import {createBox, createText, BoxProps as ReBoxProps} from '@shopify/restyle'
-import {Theme} from 'shared/theme'
+import {
+  BorderlessButton as RNGHBorderlessButton,
+  RectButton as RNGHRectButton,
+} from 'react-native-gesture-handler'
+import type {BoxProps as ReBoxProps} from '@shopify/restyle'
+import {createBox, createText} from '@shopify/restyle'
+import type {Theme} from 'shared/theme'
 
 export const Box = createBox<Theme>()
 export const Text = createText<Theme>()

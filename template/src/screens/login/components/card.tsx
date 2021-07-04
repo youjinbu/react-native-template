@@ -1,5 +1,5 @@
 import React from 'react'
-import {ImageProps} from 'react-native'
+import type {ImageProps} from 'react-native'
 import {Text, Image, Card as ReCard} from 'components'
 
 interface CardProps {

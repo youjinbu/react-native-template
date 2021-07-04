@@ -1,5 +1,6 @@
 import React from 'react'
-import {TextInput, ImageProps, TextInputProps} from 'react-native'
+import type {ImageProps, TextInputProps} from 'react-native'
+import {TextInput} from 'react-native'
 import {Image} from './restyle-components'
 import {Card} from './card'
 

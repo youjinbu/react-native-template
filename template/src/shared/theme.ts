@@ -1,9 +1,8 @@
-import {
-  createTheme,
+import type {
   BoxProps as ReBoxProps,
   ColorProps as ReColorProps,
-  useTheme as useRestyledTheme,
 } from '@shopify/restyle'
+import {createTheme, useTheme as useRestyledTheme} from '@shopify/restyle'
 
 const palette = {
   bg: '#f8f8f8',

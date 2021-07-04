@@ -1,6 +1,7 @@
 import React from 'react'
-import {ViewProps, Platform} from 'react-native'
-import {BoxProps, ColorProps} from 'shared/theme'
+import type {ViewProps} from 'react-native'
+import {Platform} from 'react-native'
+import type {BoxProps, ColorProps} from 'shared/theme'
 import {Text, Box, RectButton, TouchableBox} from './restyle-components'
 
 type ButtonType = 'primary' | 'secondary' | undefined

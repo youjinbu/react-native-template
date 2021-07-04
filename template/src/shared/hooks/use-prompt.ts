@@ -1,5 +1,5 @@
 import {createRef} from 'react'
-import {PromptHandle} from 'components/prompt'
+import type {PromptHandle} from 'components/prompt'
 
 const ref = createRef<PromptHandle>()
 

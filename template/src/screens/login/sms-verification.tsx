@@ -1,5 +1,6 @@
 import React from 'react'
-import {useNavigation, ScreenProps} from 'shared/navigation'
+import type {ScreenProps} from 'shared/navigation'
+import {useNavigation} from 'shared/navigation'
 import {Text, Button} from 'components'
 import {Container} from './components/container'
 import {Card} from './components/card'
