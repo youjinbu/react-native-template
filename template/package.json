@@ -32,7 +32,7 @@
     "@types/react-native": "0.64.10",
     "babel-plugin-module-resolver": "4.1.0",
     "dotenv-cli": "4.0.0",
-    "metro-react-native-babel-preset": "0.66.0",
+    "metro-react-native-babel-preset": "0.66.1",
     "patch-package": "6.4.7"
   },
   "resolutions": {
